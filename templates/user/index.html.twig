@@ -1,38 +1,11 @@
 {% extends 'base.html.twig' %}
-{% block header %}
-<h1>Sing Up</h1>
-{% endblock %}
+{% block title %}Welcome to Cable Unet{% endblock %}
 
 {% block body %}
-
-<form action="create" method="POST">
     <div>
-        <ul>
-            <li>
-                <label>Nombre</label>
-                <input type="text" name="name" placeholder="Username">
-            </li>
-            <li>
-                <label>Apellido</label>
-                <input type="text" name="lastName" placeholder="lastName">
-            </li>
-            <li>
-                <label>Contraseña</label>
-                <input type="password" name="password" placeholder="password">
-            </li>
-            <li>
-                <label>Email</label>
-                <input type="mail" name="mail" placeholder="mail">
-            </li>
-            <li>
-                <label>Telefono</label>
-                <input type="textnumber" name="phone" placeholder="+58">
-            </li>
-            <li>
-                <input type="submit">
-            </li>
-        </ul>
+        <h1>Lets start</h1>
+        <a href="login">Login</a>
+        <a href="singUp">singUp</a>
     </div>
-</form>
 
 {% endblock %}
