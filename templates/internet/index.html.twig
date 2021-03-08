@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create service{% endblock %}
+
+{% block body %}
+    <h1>Create a Internet service</h1>
+    <section>
+        <form action='create' method='POST'>
+            <input name='price' type='number' >
+            <input name='speed' type='number' >
+            <button>Crear</button>
+        </form>
+    </section>
+{% endblock %}
