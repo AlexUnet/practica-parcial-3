@@ -1,0 +1,38 @@
+{% block header %}
+<h1>Sing Up</h1>
+{% endblock %}
+
+{% block body %}
+
+<form action="" method="POST">
+    <div>
+        <ul>
+            <li>
+                <label>Nombre</label>
+                <input type="text" name="name" placeholder="Username">
+            </li>
+            <li>
+                <label>Apellido</label>
+                <input type="text" name="lastName" placeholder="Username">
+            </li>
+            <li>
+                <label>Contraseña</label>
+                <input type="password" name="password" placeholder="Username">
+            </li>
+            <li>
+                <label>Email</label>
+                <input type="mail" name="mail" placeholder="Username">
+            </li>
+            <li>
+                <label>Telefono</label>
+                <input type="number" name="phone" placeholder="Username">
+            </li>
+            <li>
+                <input type="submit">
+            </li>
+        </ul>
+    </div>
+</form>
+
+
+{% endblock %}
