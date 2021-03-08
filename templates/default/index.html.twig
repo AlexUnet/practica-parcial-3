@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello!{% endblock %}
+{% block title %}Proyecto 3{% endblock %}
 
 {% block body %}
 
@@ -14,8 +14,8 @@
     </ul>
     Pages:
     <ul>
-        <li><a href='/internet'>Create internet</a></li>
-        <li><a href='/telephony'>Create telephony</a></li>
+        <li><a href='{{ app.request.getBaseURL() }}/internet'>Create internet</a></li>
+        <li><a href='{{ app.request.getBaseURL() }}/telephony'>Create telephony</a></li>
     </ul>
 </div>
 {% endblock %}
