@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>Your Requests</h1>
+
+    {% for item in changeRequestList %}
+        <li>{{item.getId()}} | {{item.getDate().format('d/m/Y')}} | {{item.getState()?"true":"false"}} </li>         
+    {% endfor %}
+
+{% endblock %}

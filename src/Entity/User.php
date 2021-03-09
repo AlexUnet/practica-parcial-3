@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -46,6 +48,16 @@ class User
      * @ORM\Column(type="string", length=8)
      */
     private $phoneNumber;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ChangeRequest::class, mappedBy="user")
+     */
+    private $changeRequest;
+
+    public function __construct()
+    {
+        $this->changeRequest = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -120,6 +132,36 @@ class User
     public function setPhoneNumber(string $phoneNumber): self
     {
         $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ChangeRequest[]
+     */
+    public function getChangeRequest(): Collection
+    {
+        return $this->changeRequest;
+    }
+
+    public function addChangeRequest(ChangeRequest $changeRequest): self
+    {
+        if (!$this->changeRequest->contains($changeRequest)) {
+            $this->changeRequest[] = $changeRequest;
+            $changeRequest->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeChangeRequest(ChangeRequest $changeRequest): self
+    {
+        if ($this->changeRequest->removeElement($changeRequest)) {
+            // set the owning side to null (unless already changed)
+            if ($changeRequest->getUser() === $this) {
+                $changeRequest->setUser(null);
+            }
+        }
 
         return $this;
     }
