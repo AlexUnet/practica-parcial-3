@@ -2,8 +2,9 @@
 
 namespace App\Controller;
 
-session_start();
-
+if (!isset($_SESSION)) {
+    session_start();
+}
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

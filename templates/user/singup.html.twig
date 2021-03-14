@@ -5,34 +5,21 @@
 
 {% block body %}
 
-<form action="create" method="POST">
-    <div>
-        <ul>
-            <li>
-                <label>Name</label>
-                <input type="text" name="name" placeholder="Username">
-            </li>
-            <li>
-                <label>Last name</label>
-                <input type="text" name="lastName" placeholder="lastName">
-            </li>
-            <li>
-                <label>Password</label>
-                <input type="password" name="password" placeholder="password">
-            </li>
-            <li>
-                <label>Mail</label>
-                <input type="mail" name="mail" placeholder="mail">
-            </li>
-            <li>
-                <label>Phone</label>
-                <input type="textnumber" name="phone" placeholder="+58">
-            </li>
-            <li>
-                <input type="submit">
-            </li>
-        </ul>
-    </div>
-</form>
+<main>
+    <section>
+        <h1>Registro</h1>
+        <form action="create" method="POST">
+            <div>
+                <input required type="text" name="name" placeholder="nombre">
+                <input required type="text" name="lastName" placeholder="apellido">
+            </div>
+            <input required type="email" name="mail" placeholder="email">
+            <input required type="password" name="password" placeholder="password">
+            <input required class="phone-number" type="textnumber" name="phone" placeholder="+58">
+            <input class="submit" type="submit">
+        </form>
+    </section>
+</main>
+<link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/signup.css">
 
 {% endblock %}

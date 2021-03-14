@@ -5,18 +5,21 @@
 {% block body %}
 
 <div class="example-wrapper">
-    <h1>Project in maintenance!</h1>
+    <h1>Practica 1 Parcial 3 UNET</h1>
 
-    made by:
-    <ul>
-        <li>Manuel</li>
-        <li>Alejandro</li>
-    </ul>
-    Pages:
-    <ul>
-        <li><a href='{{ app.request.getBaseURL() }}/user'>Get Started</a></li>
-        <li><a href='{{ app.request.getBaseURL() }}/internet'>Create internet</a></li>
-        <li><a href='{{ app.request.getBaseURL() }}/telephony'>Create telephony</a></li>
-    </ul>
+    <main>
+        <section>
+            <h2>Hecho por</h2>
+            <ul>
+                <li><a href="https://github.com/josejmv">Manuel</a></li>
+                <li><a href="https://github.com/AlexUnet">Alejandro</a></li>
+            </ul>
+            
+            <a class='start' href='{{ app.request.getBaseURL() }}/user/login'>Iniciar Sesion</a>
+            <a class='start' href='{{ app.request.getBaseURL() }}/user/singUp'>Registrarse</a>
+        </section>
+    </main>
 </div>
+<link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/intro.css">
+
 {% endblock %}
