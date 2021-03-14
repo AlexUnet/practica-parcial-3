@@ -29,10 +29,14 @@ class InternetController extends AbstractController
         $internet->setSpeed($_POST['speed']);
         $internet->setPrice($_POST['price']);
 
-        $newInternet = $this->getDoctrine()->getManager();
-        $newInternet->persist($internet);
-        $newInternet->flush();
+        try {
+            $newInternet = $this->getDoctrine()->getManager();
+            $newInternet->persist($internet);
+            $newInternet->flush();
 
-        return $this->render('internet/create.html.twig');
+            return $this->render('internet/create.html.twig');
+        } catch (\Throwable $th) {
+            return $this->render('internet/errorCreate.html.twig');
+        }
     }
 }

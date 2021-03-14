@@ -7,10 +7,11 @@
     <section>
         <div>
             <h1>Welcome Admin {{sessionName}}</h1>
+            <p><a href="{{ app.request.getBaseURL() }}/cable">Create Program</a></p>
+            <p><a href="{{ app.request.getBaseURL() }}/cable">Create Channel</a></p>
+            <p><a href="{{ app.request.getBaseURL() }}/cable">Create cable service</a></p>
             <p><a href="{{ app.request.getBaseURL() }}/internet">Create internet service</a></p>
             <p><a href="{{ app.request.getBaseURL() }}/telephony">Create telephony service</a></p>
-            <p><a href="{{ app.request.getBaseURL() }}/cable">Create Channel service</a></p>
-            <p><a href="{{ app.request.getBaseURL() }}/cable">Create cable service</a></p>
             <p><a href="{{ app.request.getBaseURL() }}/package">Create package</a></p>
             <p><a href="{{ app.request.getBaseURL() }}/tickets">tickets list</a></p>
         </div>
