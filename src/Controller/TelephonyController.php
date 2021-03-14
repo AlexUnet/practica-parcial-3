@@ -31,10 +31,14 @@ class TelephonyController extends AbstractController
         $telephony->setMinutes($_POST['minutes']);
         $telephony->setPrice($_POST['price']);
 
-        $newTelephony = $this->getDoctrine()->getManager();
-        $newTelephony->persist($telephony);
-        $newTelephony->flush();
+        try {
+            $newTelephony = $this->getDoctrine()->getManager();
+            $newTelephony->persist($telephony);
+            $newTelephony->flush();
 
-        return $this->render('telephony/create.html.twig');
+            return $this->render('telephony/create.html.twig');
+        } catch (\Throwable $th) {
+            return $this->render('telephony/errorCreate.html.twig');
+        }
     }
 }

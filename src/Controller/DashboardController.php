@@ -17,6 +17,8 @@ class DashboardController extends AbstractController
      */
     public function index(): Response
     {
+        if(session_status() === 1)
+            session_start();
         if($_SESSION['user']->getIsAdmin())
             return $this->render('dashboard/indexAdmin.html.twig',['sessionName' => $_SESSION['user']->getName()]);
         
