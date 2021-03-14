@@ -2,15 +2,16 @@
 {% block title %}Login{% endblock %}
 
 {% block body %}
-    <h1>Login</h1>
-    <div>
+<main>
+    <section>
+        <h1>Login</h1>
         <form action="login" method="POST">
-            <label>Mail</label>
-            <input name="mail" type="mail">
-            <label>Password</label>
-            <input name="password" type="password">
-            <input type="submit">
+            <input required type="email" name="mail" placeholder="email">
+            <input required type="password" name="password" placeholder="password">
+            <input class="submit" type="submit">
         </form>
-    </div>
+    </section>
+</main>
+<link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/login.css">
 
 {% endblock %}

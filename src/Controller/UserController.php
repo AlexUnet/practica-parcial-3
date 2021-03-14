@@ -23,7 +23,6 @@ class UserController extends AbstractController
      */
     public function create()
     {
-
         $user = new User();
         $user->setIsAdmin(false);
         $user->setName($_POST['name']);
@@ -32,11 +31,15 @@ class UserController extends AbstractController
         $user->setMail($_POST['mail']);
         $user->setPhoneNumber($_POST['phone']);
 
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($user);
-        $entityManager->flush();
-
-        return $this->render('user/create.html.twig');
+        try {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+    
+            return $this->render('user/create.html.twig');
+        } catch (\Throwable $th) {
+            return $this->render('user/errorCreate.html.twig');
+        }
     }
 
     /**
@@ -56,17 +59,13 @@ class UserController extends AbstractController
             ->findOneBy(['mail' => $_POST['mail'], 'password' => $_POST['password']]);
 
         if (!$user) {
-            return $this->render("User not found");
+            return $this->render("user/notfound.html.twig");
         } else {
-            $this->saveSessionData($user);
+            $_SESSION['user'] = $user;
             return $this->forward('App\Controller\DashboardController::fancy');
         }
     }
 
-    public function saveSessionData($user)
-    {
-        $_SESSION['user'] = $user;
-    }
     /**
      * @Route("/user/singUp", methods="GET")
      */
