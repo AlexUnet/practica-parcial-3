@@ -4,11 +4,12 @@
 {% endblock %}
 
 {% block body %}
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,600">
     <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/dashboard.css">
 	<body>
 		<header>
 			<div class="container">
+                <h1 class="webName">Cable Unet</h1>
 				<nav>
 					<ul>
 						<li><a href="/dashboard">Home</a></li>
@@ -19,7 +20,6 @@
 				</nav>
 			</div>
 		</header>
+        <h2 class="sessionName">Welcome {{sessionName}}</h2>
 	</body>
-
-    
 {% endblock %}
