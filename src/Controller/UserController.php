@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+//session_start();
+
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +16,7 @@ class UserController extends AbstractController
      */
     public function index(): Response
     {
-        session_start();
+        
         return $this->render('user/index.html.twig');
     }
 
@@ -74,4 +76,12 @@ class UserController extends AbstractController
     {
         return $this->render("user/singup.html.twig");
     }
+    /**
+     * @Route("/user/singUp", methods="GET")
+     */
+    public function userList(){
+        
+    }
+
+
 }

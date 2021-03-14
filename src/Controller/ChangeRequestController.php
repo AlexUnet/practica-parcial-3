@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+//session_start();
+
 use App\Entity\ChangeRequest;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,9 +18,7 @@ class ChangeRequestController extends AbstractController
      */
     public function index(): Response
     {
-        if (!isset($_SESSION)) {
-            session_start();
-        }
+        
         $changeList = $this->buildRequestsList($_SESSION['user']->getIsAdmin());
         if ($_SESSION['user']->getIsAdmin())
             return $this->render('change_request/changeRequestsAdmin.html.twig', ['changeRequestList' => $changeList]);
