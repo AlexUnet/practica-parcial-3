@@ -3,9 +3,13 @@
 {% block title %}Create user{% endblock %}
 
 {% block body %}
-    <h1>Success</h1>
+<main>
     <section>
-        <p>The user was successfull created, go to dashboard</p>
-        <a href='{{ app.request.getBaseURL() }}'>HERE</a>
+        <h1>Success</h1>
+            <h2>The user was successfull created, go to Login</h2>
+            <a href='{{ app.request.getBaseURL() }}/user/login'>HERE</a>
     </section>
+</main>
+<link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/userCreated.css">
+
 {% endblock %}
