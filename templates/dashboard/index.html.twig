@@ -1,10 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Dashboard{% endblock %}
+{% block title %}Dashboard
+{% endblock %}
 
 {% block body %}
-    <div>
-        <h1>Welcome {{sessionName}}</h1>
-        <a href="/change/request/">Change Requests</a>
-    </div>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300">
+    <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/dashboard.css">
+	<body>
+		<header>
+			<div class="container">
+				<nav>
+					<ul>
+						<li><a href="/dashboard">Home</a></li>
+						<li><a href="#">Mis Paquetes</a></li>
+						<li><a href="#">Comprar Paquetes</a></li>
+						<li><a href="/change/request/">Solicitud de cambio</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+	</body>
+
+    
 {% endblock %}

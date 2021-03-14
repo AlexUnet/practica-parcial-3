@@ -2,6 +2,10 @@
 
 namespace App\Controller;
 
+if (!isset($_SESSION)) {
+    session_start();
+}
+
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +18,7 @@ class UserController extends AbstractController
      */
     public function index(): Response
     {
-        session_start();
+
         return $this->render('user/index.html.twig');
     }
 
@@ -35,7 +39,7 @@ class UserController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
-    
+
             return $this->render('user/create.html.twig');
         } catch (\Throwable $th) {
             return $this->render('user/errorCreate.html.twig');
@@ -72,5 +76,11 @@ class UserController extends AbstractController
     public function singUp()
     {
         return $this->render("user/singup.html.twig");
+    }
+    /**
+     * @Route("/user/singUp", methods="GET")
+     */
+    public function userList()
+    {
     }
 }

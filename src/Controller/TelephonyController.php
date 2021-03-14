@@ -2,6 +2,10 @@
 
 namespace App\Controller;
 
+if (!isset($_SESSION)) {
+    session_start();
+}
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -10,7 +14,7 @@ use App\Entity\Telephony;
 
 class TelephonyController extends AbstractController
 {
-     /**
+    /**
      * @Route("/telephony/", name="telephony", methods="GET")
      */
     public function index(): Response
@@ -21,7 +25,8 @@ class TelephonyController extends AbstractController
     /**
      * @Route("/telephony/create", name="createTelephony", methods="POST")
      */
-    public function create(){
+    public function create()
+    {
         $telephony = new Telephony();
         $telephony->setMinutes($_POST['minutes']);
         $telephony->setPrice($_POST['price']);
