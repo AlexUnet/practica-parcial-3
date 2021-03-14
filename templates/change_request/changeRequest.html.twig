@@ -1,39 +1,40 @@
 {% extends 'base.html.twig' %}
+{% block title %}
+	{{changeRequestList[0].getUser().getName()}}
+	Change Requests
+{% endblock %}
 {% block body %}
-	<h1>Your Requests</h1>
+	<link href="https://fonts.googleapis.com/css?family=Work+Sans:400,600">
+	<link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/changeRequest.css">
+	<body>
+		<header>
+			<div class="container">
+				<h1 class="title">Your Requests</h1>
+			</div>
+		</header>
+		{% for item in changeRequestList %}
 
-    <style>
-        .th{
-            background-color: red;
-        }
-        .th2{
-            background-color: green;
-        }
-    </style>
-
-	{% for item in changeRequestList %}
-
-		<table style="width:100%">
-			<tr>
-				<form action="state" name="requestChange" method="GET">
-					<th>
-						{{item.getId()}}
-					</th>
-					<th>
-						{{item.getUser().getName()}}
-					</th>
-					<th>
-						{{item.getDate().format('d/m/y')}}
-					</th>
-					<th class="{{item.getState()?"th":"th2"}}">
-						{{item.getState()?"pendiente":"resuelta"}}
-					</th>
-				</form>
-			</tr>
-		</table>
-	{% endfor %}
-    <form action="" method="GET">
-        <button type="submit">New Request</button>
-    </form>
-
+			<table>
+				<tr>
+					<form action="state" name="requestChange" method="GET">
+						<th>
+							{{item.getId()}}
+						</th>
+						<th>
+							{{item.getUser().getName()}}
+						</th>
+						<th>
+							{{item.getDate().format('d/m/y')}}
+						</th>
+						<th class="{{item.getState()?"th":"th2"}}">
+							{{item.getState()?"pendiente":"resuelta"}}
+						</th>
+					</form>
+				</tr>
+			</table>
+		{% endfor %}
+		<form action="" method="GET">
+			<button type="submit">New Request</button>
+		</form>
+	</body>
 {% endblock %}
