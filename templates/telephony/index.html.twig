@@ -7,11 +7,11 @@
     <section>
         <h1>Create a telephony service</h1>
         <form action='create' method='POST'>
-            <input placeholder="Minutes" name='minutes' type='number' >
-            <input placeholder="Price" name='price' type='number' >
+            <input required placeholder="Minutes" name='minutes' type='number' >
+            <input required placeholder="Price" name='price' type='number' >
             <button class="submit">Crear</button>
         </form>
     </section>
 </main>
-<link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/createTelephony.css">
+<link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/form.css">
 {% endblock %}

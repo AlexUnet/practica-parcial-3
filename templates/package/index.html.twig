@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create Package{% endblock %}
+
+{% block body %}
+<main>
+    <section>
+        <h1>Create a package</h1>
+        <form action='create' method='POST'>
+            <input required placeholder="Package name" name='name' type='text' >
+            <div>
+                <label> Cable
+                    <select name='cable'>
+                        <option value=''></option>
+                        {% for cable in cables %}
+                            <option value='{{ cable }}'>{{ cable }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+
+                <label> Telephony (minutes)
+                    <select name='telephony'>
+                        <option value=''></option>
+                        {% for telephony in telephonies %}
+                            <option value='{{ telephony }}'>{{ telephony }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+
+                <label> Internet (Mb/s)
+                    <select name='internet'>
+                        <option value=''></option>
+                        {% for internet in internets %}
+                            <option value='{{ internet }}'>{{ internet }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+            </div>
+            <button class="submit">Crear</button>
+        </form>
+    </section>
+</main>
+<link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/form.css">
+{% endblock %}

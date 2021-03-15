@@ -3,9 +3,12 @@
 {% block title %}Create service{% endblock %}
 
 {% block body %}
-    <h1>Success</h1>
+<main>
     <section>
-        <p>The internet service was successfull created, go to dashboard</p>
-        <a href='{{ app.request.getBaseURL() }}'>HERE</a>
+        <h1>Success</h1>
+        <h2>The internet service was successfull created, go to dashboard</h2>
+        <a href='{{ app.request.getBaseURL() }}/dashboard'>HERE</a>
     </section>
+</main>
+<link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/created.css">
 {% endblock %}

@@ -1,15 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Create user{% endblock %}
+{% block title %}Create chanel{% endblock %}
 
 {% block body %}
 <main>
     <section>
         <h1>Success</h1>
-            <h2>The user was successfull created, go to Login</h2>
-            <a href='{{ app.request.getBaseURL() }}/user/login'>HERE</a>
+        <h2>The chanel was successfull created, go to dashboard</h2>
+        <a href='{{ app.request.getBaseURL() }}/dashboard'>HERE</a>
     </section>
 </main>
 <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/created.css">
-
 {% endblock %}
