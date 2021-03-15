@@ -7,7 +7,10 @@ if (!isset($_SESSION)) {
 }
 
 use App\Entity\ChangeRequest;
+use App\Entity\Package;
 use App\Entity\User;
+use DateTime;
+use DateTimeInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,7 +23,6 @@ class ChangeRequestController extends AbstractController
      */
     public function index(): Response
     {
-        
         $changeList = $this->buildRequestsList($_SESSION['user']->getIsAdmin());
         if ($_SESSION['user']->getIsAdmin())
             return $this->render('change_request/changeRequestsAdmin.html.twig', ['changeRequestList' => $changeList]);
@@ -49,4 +51,35 @@ class ChangeRequestController extends AbstractController
         $request->setState(false);
         return $this->index();        
     }
+    /**
+     * @Route("/change/create", methods="GET")
+     */
+    public function createRequest(){
+        $packages = $this->getDoctrine()->getRepository(Package::class)->findAll();
+        return $this->render('change_request/createChangeRequest.html.twig',['packages' => $packages]);
+    }
+    /**
+     * @Route("/change/select", methods="GET")
+     */
+    public function sendNewRequest(){
+        $package = $this->getDoctrine()->getRepository(Package::class)->findOneBy(['id' => $_GET['package']]);
+        $user = $this->getDoctrine()->getRepository(User::class)->findOneBy(['id'=>$_SESSION['user']->getId()]);
+        $date = new DateTime();
+        $changeRequest = new ChangeRequest();
+        $changeRequest->setUser($user);
+        $changeRequest->setPackage($package);
+        $changeRequest->setDate($date);
+        $changeRequest->setState(true);
+
+        try{
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($changeRequest);
+            $entityManager->flush();
+            return $this->index();
+        }
+        catch(\Throwable $th){
+            return $this->render('change_request/errorCreate.html.twig');
+        }
+    }
+
 }
