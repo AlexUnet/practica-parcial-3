@@ -48,3 +48,19 @@ th{
 .title{
     color: #444;
 }
+
+button{
+    font-size: large;
+    background: #444;
+    color: #ff4d17;
+    border-radius: 20px;
+}
+
+h2{
+    color: #fff;
+}
+
+select{
+    width: 300px;
+    background-color: #ff4d17;
+}

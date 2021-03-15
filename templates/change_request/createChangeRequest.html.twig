@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+	Change Requests
+{% endblock %}
+{% block body %}
+	<link href="https://fonts.googleapis.com/css?family=Work+Sans:400,600">
+	<link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/changeRequest.css">
+	<body>
+		<header>
+			<div class="container">
+				<h1 class="title">Create a Requests</h1>
+			</div>
+		</header>
+
+        <form action="select">
+            <h2>Seleccione un paquete</h2>
+            <select name="packages">
+                <option value=""></option>
+                {% for package in packages %}
+                <option value='{{package.getName()}}'>{{package.getName()}} precio:{{package.getPrice()}}$ cable:{{package.getCable().getName()}} telefono:{{package.getTelephony().getMinutes()}}min internet:{{package.getInternet().getspeed()}}Mbps</option>
+                <input type="hidden" name="package" value='{{package.getId()}}'                    
+                {% endfor %}
+            </select>
+            <button type="submit">Aceptar</button>
+        </form>
+		
+	</body>
+{% endblock %}
