@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard
+{% endblock %}
+
+{% block body %}
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,600">
+    <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/dashboard.css">
+	<body>
+		<header>
+			<div class="container">
+                <h1 class="webName">Cable Unet</h1>
+				<nav>
+					<ul>
+						<li><a href="/dashboard">Home</a></li>
+						<li><a href="/myPackage">Mis Paquetes</a></li>
+						<li><a href="/package">Comprar Paquetes</a></li>
+						<li><a href="/change/request/">Solicitud de cambio</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+        <h1>User Package</h1>
+        <table>
+            <tr>
+                <th>
+                    {{package.getName()??"Sin servicio"}}
+                </th>
+                <th>
+                    {{package.getPrice()??"0"}}$
+                </th>
+                <th>
+                    {{package.getCable().getName()??"Sin servicio de cable"}}
+                </th>
+                <th>
+                    {{package.getTelephony().getMinutes()??"Sin servicio de telefonía"}}
+                </th>
+                <th>
+                    {{package.getInternet().getSpeed()??"Sin servicio de internet"}}
+                </th>
+            </tr>
+
+        </table>
+	</body>
+{% endblock %}

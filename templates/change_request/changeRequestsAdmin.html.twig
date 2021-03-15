@@ -1,46 +1,19 @@
 {% extends 'base.html.twig' %}
-{% block navigationBar %}{% endblock %}
-{% block header %}{% endblock %}
+{% block title %}
+	Change Requests
+{% endblock %}
 {% block body %}
-	<style>
-		table,
-		th,
-		tr {
-			align-items: center;
-			border: 1px solid black;
-			border-collapse: collapse;
-		}
-	</style>
-
-	<style>
-		.button2{
-			background-color: green; /* Green */
-			border: none;
-			color: white;
-			padding: 15px 32px;
-			text-align: center;
-			text-decoration: none;
-			display: inline-block;
-			font-size: 16px;
-		}
-		.button {
-			background-color: red; /* Green */
-			border: none;
-			color: white;
-			padding: 15px 32px;
-			text-align: center;
-			text-decoration: none;
-			display: inline-block;
-			font-size: 16px;
-		}
-	</style>
-
-	<h1>Change Request List</h1>
-
-	
+	<link href="https://fonts.googleapis.com/css?family=Work+Sans:400,600">
+	<link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/changeRequest.css">
+	<body>
+		<header>
+			<div class="container">
+				<h1 class="title">Requests List</h1>
+			</div>
+		</header>
 		{% for item in changeRequestList %}
 
-			<table style="width:100%">
+			<table>
 				<tr>
 					<form action="state" name="requestChange" method="GET">
 						<th>
@@ -48,6 +21,9 @@
 						</th>
 						<th>
 							{{item.getUser().getName()}}
+						</th>
+						<th>
+							{{item.getPackage().getName()}}
 						</th>
 						<th>
 							{{item.getDate().format('d/m/y')}}
@@ -63,7 +39,5 @@
 				</tr>
 			</table>
 		{% endfor %}
-	
-
-
+	</body>
 {% endblock %}
