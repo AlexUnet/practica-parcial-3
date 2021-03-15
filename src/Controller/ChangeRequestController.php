@@ -10,7 +10,6 @@ use App\Entity\ChangeRequest;
 use App\Entity\Package;
 use App\Entity\User;
 use DateTime;
-use DateTimeInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -43,12 +42,13 @@ class ChangeRequestController extends AbstractController
      */
     public function setRequestState()
     {
+        $entityManager = $this->getDoctrine()->getManager();
         $request = $this->getDoctrine()->getRepository(ChangeRequest::class)->findOneBy(['id' => $_GET['requestId']]);
         $user = $this->getDoctrine()->getRepository(User::class)->findOneBy(['id' => $_GET['userId']]);
-        //$package = $user->getPackage();
-        //$newPackage = $request->getPackage();
-        //$user->setPackage($newPackage);
+        $newPackage = $this->getDoctrine()->getRepository(Package::class)->findOneBy(['id' => $request->getPackage()->getId()]);
+        $user->setPackage($newPackage);
         $request->setState(false);
+        $entityManager->flush();
         return $this->index();        
     }
     /**

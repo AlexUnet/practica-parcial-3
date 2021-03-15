@@ -54,6 +54,11 @@ class User
      */
     private $changeRequest;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Package::class, inversedBy="users")
+     */
+    private $package;
+
     public function __construct()
     {
         $this->changeRequest = new ArrayCollection();
@@ -162,6 +167,18 @@ class User
                 $changeRequest->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPackage(): ?Package
+    {
+        return $this->package;
+    }
+
+    public function setPackage(?Package $Package): self
+    {
+        $this->package = $Package;
 
         return $this;
     }

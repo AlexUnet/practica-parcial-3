@@ -1,21 +1,47 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Dashboard Admin{% endblock %}
+{% block title %}Dashboard Admin
+{% endblock %}
 
 {% block body %}
-<main>
-    <section>
-        <div>
-            <h1>Welcome Admin {{sessionName}}</h1>
-            <p><a href="{{ app.request.getBaseURL() }}/program">Create Program</a></p>
-            <p><a href="{{ app.request.getBaseURL() }}/chanel">Create Channel</a></p>
-            <p><a href="{{ app.request.getBaseURL() }}/cable">Create cable service</a></p>
-            <p><a href="{{ app.request.getBaseURL() }}/internet">Create internet service</a></p>
-            <p><a href="{{ app.request.getBaseURL() }}/telephony">Create telephony service</a></p>
-            <p><a href="{{ app.request.getBaseURL() }}/package">Create package</a></p>
-            <p><a href="{{ app.request.getBaseURL() }}/tickets">tickets list</a></p>
-        </div>
-    </section>
-</main>
-<link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/adminDashboard.css">
+	<body>
+		<header>
+			<div class="container">
+				<h1 class="webName">Cable Unet</h1>
+				<nav>
+					<ul>
+						<li><a href="/dashboard">Home</a></li>
+						<li><a href="/change/request/">Solicitud de cambio</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+	</body>
+	<div>
+		<h1>Welcome Admin
+			{{sessionName}}</h1>
+		<p>
+			<a href="{{ app.request.getBaseURL() }}/program">Create Program</a>
+		</p>
+		<p>
+			<a href="{{ app.request.getBaseURL() }}/chanel">Create Channel</a>
+		</p>
+		<p>
+			<a href="{{ app.request.getBaseURL() }}/cable">Create cable service</a>
+		</p>
+		<p>
+			<a href="{{ app.request.getBaseURL() }}/internet">Create internet service</a>
+		</p>
+		<p>
+			<a href="{{ app.request.getBaseURL() }}/telephony">Create telephony service</a>
+		</p>
+		<p>
+			<a href="{{ app.request.getBaseURL() }}/package">Create package</a>
+		</p>
+		<p>
+			<a href="{{ app.request.getBaseURL() }}/tickets">tickets list</a>
+		</p>
+	</div>
+
+	<link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/adminDashboard.css">
 {% endblock %}
