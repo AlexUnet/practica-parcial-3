@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create service{% endblock %}
+
+{% block body %}
+<main>
+    <section>
+        <h1>Create a Chanel</h1>
+        <form action='create' method='POST'>
+            <input required placeholder="Chanel name" name='name' type='text' >
+            <div>
+                <label> Available programs 
+                    <select name='programs[]' multiple>
+                        {% for program in programs %}
+                            <option value='{{ program }}'>{{ program }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+            </div>
+            <button class="submit">Crear</button>
+        </form>
+    </section>
+</main>
+<link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/form.css">
+{% endblock %}
