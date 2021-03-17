@@ -45,7 +45,7 @@ class User
     private $mail;
 
     /**
-     * @ORM\Column(type="string", length=8)
+     * @ORM\Column(type="string", length=15)
      */
     private $phoneNumber;
 
