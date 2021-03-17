@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create Cable{% endblock %}
+
+{% block body %}
+<main>
+    <section>
+        <h1>Create a Cable service</h1>
+        <form action='create' method='POST'>
+            <input required placeholder="Cable name" name='name' type='text' >
+            <input required placeholder="$ Price" name='price' type='number' >
+            <div>
+                <label> Chanels 
+                    <select name='chanels[]' multiple>
+                        {% for chanel in chanels %}
+                            <option value='{{ chanel }}'>{{ chanel }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+            </div>
+            <button class="submit">Crear</button>
+        </form>
+    </section>
+</main>
+<link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/form.css">
+{% endblock %}

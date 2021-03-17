@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block title %}Login{% endblock %}
+
+{% block body %}
+<main>
+    <section>
+        <div class='title-container'>
+            <a href="/">Volver</a>
+            <h1>Login</h1>
+        </div>
+        <form action="login" method="POST">
+            <input required type="email" name="mail" placeholder="email">
+            <input required type="password" name="password" placeholder="password">
+            <input class="submit" type="submit">
+        </form>
+    </section>
+</main>
+<link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/form.css">
+
+{% endblock %}

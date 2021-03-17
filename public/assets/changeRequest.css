@@ -1,0 +1,150 @@
+body {
+    margin: 0;
+    background: #222;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 300;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+ 
+header {
+    background: #ff4d17;
+}
+
+header::before{
+    content: '';
+    display: table;
+    clear: both;
+}
+
+header::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+
+table {
+    width: 100%;
+}
+
+tr{
+    color: #444;
+}
+
+th{
+    color: #fff;
+}
+
+.th {
+    background-color: red;
+}
+.th2 {
+    background-color: green;
+}
+
+.title{
+    color: #444;
+}
+
+button{
+    font-size: large;
+    background: #444;
+    color: #ff4d17;
+    border-radius: 20px;
+}
+
+button:hover{
+    cursor:pointer
+}
+
+h2{
+    color: #fff;
+}
+
+select{
+    width: 300px;
+    background-color: #ff4d17;
+}
+
+.button2{
+    background-color: green; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.button {
+    background-color: red; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+nav {
+    float: right;
+  }
+  
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  nav li{
+    display: inline-block;
+    margin-left: 70px;
+  
+    position: relative;
+  }
+  
+  nav a {
+    color: #444;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: large;
+    font-weight: bolder;
+  }
+  
+  nav a:hover{
+    color: #000;
+  }
+  
+  nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    width: 100%;
+    background-color: #444;
+  
+    position: absolute;
+    bottom: 0;
+    width: 0%;
+  
+    transition: all ease-in-out 250ms;
+  }
+  
+  nav a:hover::before{
+    width: 100%;
+  }
+
+  form > a {
+      color: black;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+      padding: 0 20px;
+  }

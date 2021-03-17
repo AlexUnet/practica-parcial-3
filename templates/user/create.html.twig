@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create user{% endblock %}
+
+{% block body %}
+<main>
+    <section>
+        <h1>Success</h1>
+            <h2>The user was successfull created, go to Login</h2>
+            <a href='/user/login'>HERE</a>
+    </section>
+</main>
+<link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/created.css">
+
+{% endblock %}

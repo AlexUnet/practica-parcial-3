@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create internet service
+{% endblock %}
+
+{% block body %}
+<main>
+    <section>
+        <h1>Create a Internet service</h1>
+        <form action='create' method='POST'>
+            <input required placeholder="Mb/s" name='speed' type='number' >
+            <input required placeholder="Price" name='price' type='number' >
+            <button class="submit">Crear</button>
+        </form>
+    </section>
+</main>
+<link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/form.css">
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard
+{% endblock %}
+
+{% block body %}
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,600">
+    <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/dashboard.css">
+	<body>
+		<header>
+			<div class="container">
+                <h1 class="webName">Cable Unet</h1>
+				<nav>
+					<ul>
+						<li><a href="{{ app.request.getBaseURL() }}/dashboard">Home</a></li>
+						<li><a href="{{ app.request.getBaseURL() }}/myPackage">Mis Paquetes</a></li>
+						<li><a href="{{ app.request.getBaseURL() }}/package">Comprar Paquetes</a></li>
+						<li><a href="{{ app.request.getBaseURL() }}/change/request/">Solicitud de cambio</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+        <section>
+            <h1>User Package</h1>
+            <table>
+                <th>
+                    {{package.getName()??"Sin servicio"}}
+                </th>
+                <tr>
+                    <td>
+                        {{package.getPrice()??"0"}}$
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{package.getCable().getName()??"Sin servicio de cable"}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{package.getTelephony().getMinutes()??"Sin servicio de"}} Minutos
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{package.getInternet().getSpeed()??"Sin servicio de internet"}} Mb/s
+                    </td>
+                </tr>
+            </table>
+        </section>
+	</body>
+{% endblock %}

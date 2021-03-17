@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create service{% endblock %}
+
+{% block body %}
+<main>
+    <section>
+        <h1>Create a Program</h1>
+        <form action='create' method='POST'>
+            <input required placeholder="Program name" name='name' type='text' >
+            <div>
+                <label>
+                    Monday <input name='days[]' type='checkbox' value="Mo">
+                </label>
+                <label>
+                    Tuesday <input name='days[]' type='checkbox' value="Tu">
+                </label>
+                <label>
+                    Wednesday <input name='days[]' type='checkbox' value="We">
+                </label>
+                <label>
+                    Thursday <input name='days[]' type='checkbox' value="Th">
+                </label>
+                <label>
+                    Friday <input name='days[]' type='checkbox' value="Fr">
+                </label>
+                <label>
+                    Saturday <input name='days[]' type='checkbox' value="Sa">
+                </label>
+                <label>
+                    Sunday <input name='days[]' type='checkbox' value="Su">
+                </label>
+            </div>
+            <label>
+                Schedule <input required name='hour' type='time'>
+            </label>
+            <button class="submit">Crear</button>
+        </form>
+    </section>
+</main>
+<link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/form.css">
+{% endblock %}

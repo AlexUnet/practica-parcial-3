@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard
+{% endblock %}
+
+{% block body %}
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,600">
+    <link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/dashboard.css">
+	<body>
+		<header>
+			<div class="container">
+                <h1 class="webName">Cable Unet</h1>
+				<nav>
+					<ul>
+						<li><a href="{{ app.request.getBaseURL() }}/dashboard">Home</a></li>
+						<li><a href="{{ app.request.getBaseURL() }}/myPackage">Mis Paquetes</a></li>
+						<li><a href="{{ app.request.getBaseURL() }}/change/request/">Comprar Paquetes</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+        <h2 class="sessionName">Welcome {{sessionName}}</h2>
+	</body>
+{% endblock %}

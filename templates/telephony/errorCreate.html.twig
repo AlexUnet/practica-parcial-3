@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Error{% endblock %}
+
+{% block body %}
+<main>
+    <section>
+        <h1>Error</h1>
+            <h2>Service already exists</h2>
+            <a href='/telephony'>Go to signup</a>
+    </section>
+</main>
+<link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/created.css">
+
+{% endblock %}

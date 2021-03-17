@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block header %}
+<h1>Sing Up</h1>
+{% endblock %}
+
+{% block body %}
+
+<main>
+    <section>
+        <div class='title-container'>
+            <a href="{{ app.request.getBaseURL() }}">Volver</a>
+            <h1>Registro</h1>
+        </div>
+        <form action="create" method="POST">
+            <div>
+                <input required type="text" name="name" placeholder="nombre">
+                <input required type="text" name="lastName" placeholder="apellido">
+            </div>
+            <input required type="email" name="mail" placeholder="email">
+            <input required type="password" name="password" placeholder="password">
+            <input required class="phone-number" type="textnumber" name="phone" placeholder="+58">
+            <input class="submit" type="submit">
+        </form>
+    </section>
+</main>
+<link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/form.css">
+
+{% endblock %}
