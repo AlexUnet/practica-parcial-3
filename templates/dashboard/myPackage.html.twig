@@ -12,34 +12,41 @@
                 <h1 class="webName">Cable Unet</h1>
 				<nav>
 					<ul>
-						<li><a href="/dashboard">Home</a></li>
-						<li><a href="/myPackage">Mis Paquetes</a></li>
-						<li><a href="/package">Comprar Paquetes</a></li>
-						<li><a href="/change/request/">Solicitud de cambio</a></li>
+						<li><a href="{{ app.request.getBaseURL() }}/dashboard">Home</a></li>
+						<li><a href="{{ app.request.getBaseURL() }}/myPackage">Mis Paquetes</a></li>
+						<li><a href="{{ app.request.getBaseURL() }}/package">Comprar Paquetes</a></li>
+						<li><a href="{{ app.request.getBaseURL() }}/change/request/">Solicitud de cambio</a></li>
 					</ul>
 				</nav>
 			</div>
 		</header>
-        <h1>User Package</h1>
-        <table>
-            <tr>
+        <section>
+            <h1>User Package</h1>
+            <table>
                 <th>
                     {{package.getName()??"Sin servicio"}}
                 </th>
-                <th>
-                    {{package.getPrice()??"0"}}$
-                </th>
-                <th>
-                    {{package.getCable().getName()??"Sin servicio de cable"}}
-                </th>
-                <th>
-                    {{package.getTelephony().getMinutes()??"Sin servicio de telefonía"}}
-                </th>
-                <th>
-                    {{package.getInternet().getSpeed()??"Sin servicio de internet"}}
-                </th>
-            </tr>
-
-        </table>
+                <tr>
+                    <td>
+                        {{package.getPrice()??"0"}}$
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{package.getCable().getName()??"Sin servicio de cable"}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{package.getTelephony().getMinutes()??"Sin servicio de"}} Minutos
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{package.getInternet().getSpeed()??"Sin servicio de internet"}} Mb/s
+                    </td>
+                </tr>
+            </table>
+        </section>
 	</body>
 {% endblock %}

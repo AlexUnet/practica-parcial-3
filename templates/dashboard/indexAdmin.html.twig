@@ -4,44 +4,42 @@
 {% endblock %}
 
 {% block body %}
-	<body>
-		<header>
-			<div class="container">
-				<h1 class="webName">Cable Unet</h1>
-				<nav>
-					<ul>
-						<li><a href="/dashboard">Home</a></li>
-						<li><a href="/change/request/">Solicitud de cambio</a></li>
-					</ul>
-				</nav>
-			</div>
-		</header>
-	</body>
-	<div>
+	<header>
+		<div class="container">
+			<h1 class="webName">Cable Unet</h1>
+			<nav>
+				<ul>
+					<li><a href="{{ app.request.getBaseURL() }}/dashboard">Home</a></li>
+					<li><a href="{{ app.request.getBaseURL() }}/change/request/">Solicitud de cambio</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<section>
 		<h1>Welcome Admin
 			{{sessionName}}</h1>
-		<p>
+		<h2>
 			<a href="{{ app.request.getBaseURL() }}/program">Create Program</a>
-		</p>
-		<p>
+		</h2>
+		<h2>
 			<a href="{{ app.request.getBaseURL() }}/chanel">Create Channel</a>
-		</p>
-		<p>
+		</h2>
+		<h2>
 			<a href="{{ app.request.getBaseURL() }}/cable">Create cable service</a>
-		</p>
-		<p>
+		</h2>
+		<h2>
 			<a href="{{ app.request.getBaseURL() }}/internet">Create internet service</a>
-		</p>
-		<p>
+		</h2>
+		<h2>
 			<a href="{{ app.request.getBaseURL() }}/telephony">Create telephony service</a>
-		</p>
-		<p>
+		</h2>
+		<h2>
 			<a href="{{ app.request.getBaseURL() }}/package">Create package</a>
-		</p>
-		<p>
-			<a href="{{ app.request.getBaseURL() }}/tickets">tickets list</a>
-		</p>
-	</div>
+		</h2>
+		<h2>
+			<a href="{{ app.request.getBaseURL() }}/change/request/">tickets list</a>
+		</h2>
+	</section>
 
 	<link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/adminDashboard.css">
 {% endblock %}

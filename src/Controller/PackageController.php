@@ -29,6 +29,11 @@ class PackageController extends AbstractController
             ->getRepository(Internet::class)
             ->findAll();
 
+
+        $cablesNames = [];
+        $telephoniesNames = [];
+        $internetsNames = [];
+
         foreach ($cables as $cable) 
             $cablesNames[] = $cable->getName();
         foreach ($telephonies as $telephony)

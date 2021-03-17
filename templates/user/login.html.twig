@@ -4,7 +4,10 @@
 {% block body %}
 <main>
     <section>
-        <h1>Login</h1>
+        <div class='title-container'>
+            <a href="{{ app.request.getBaseURL() }}">Volver</a>
+            <h1>Login</h1>
+        </div>
         <form action="login" method="POST">
             <input required type="email" name="mail" placeholder="email">
             <input required type="password" name="password" placeholder="password">

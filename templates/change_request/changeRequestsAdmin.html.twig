@@ -5,10 +5,15 @@
 {% block body %}
 	<link href="https://fonts.googleapis.com/css?family=Work+Sans:400,600">
 	<link rel="stylesheet" href="{{ app.request.getBaseURL() }}/assets/changeRequest.css">
-	<body>
 		<header>
 			<div class="container">
 				<h1 class="title">Requests List</h1>
+				<nav>
+					<ul>
+						<li><a href="{{ app.request.getBaseURL() }}/dashboard">Home</a></li>
+						<li><a href="{{ app.request.getBaseURL() }}/change/request/">Solicitud de cambio</a></li>
+					</ul>
+				</nav>
 			</div>
 		</header>
 		{% for item in changeRequestList %}
@@ -39,5 +44,4 @@
 				</tr>
 			</table>
 		{% endfor %}
-	</body>
 {% endblock %}

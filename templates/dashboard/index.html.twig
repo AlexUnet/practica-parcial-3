@@ -12,10 +12,9 @@
                 <h1 class="webName">Cable Unet</h1>
 				<nav>
 					<ul>
-						<li><a href="/dashboard">Home</a></li>
-						<li><a href="/myPackage">Mis Paquetes</a></li>
-						<li><a href="/package">Comprar Paquetes</a></li>
-						<li><a href="/change/request/">Solicitud de cambio</a></li>
+						<li><a href="{{ app.request.getBaseURL() }}/dashboard">Home</a></li>
+						<li><a href="{{ app.request.getBaseURL() }}/myPackage">Mis Paquetes</a></li>
+						<li><a href="{{ app.request.getBaseURL() }}/change/request/">Comprar Paquetes</a></li>
 					</ul>
 				</nav>
 			</div>

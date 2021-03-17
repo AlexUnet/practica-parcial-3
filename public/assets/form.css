@@ -13,6 +13,17 @@ section {
   padding: 30px;
 }
 
+.title-container{
+  display: flex;
+  justify-content: space-around;
+}
+
+.title-container > a{
+  color: black;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
 form input,
 select,
 label {

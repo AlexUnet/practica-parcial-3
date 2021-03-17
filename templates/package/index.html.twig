@@ -5,7 +5,10 @@
 {% block body %}
 <main>
     <section>
-        <h1>Create a package</h1>
+        <div class="title-container">
+            <a href="{{ app.request.getBaseURL() }}/dashboard">Volver</a>
+            <h1>Create a package</h1>
+        </div>
         <form action='create' method='POST'>
             <input required placeholder="Package name" name='name' type='text' >
             <div>
